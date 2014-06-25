@@ -1,0 +1,26 @@
+<div id="buttonArea">
+  <button class="se-bold">B</button>
+  <button class="se-italic">I</button>
+  <button class="se-underline">U</button>
+</div>
+<textarea id="textArea"></textarea>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../src/self-effacing-text-editor.js"></script>
+<script>
+var editor = new selfEffacingTextEditor({ 
+    prefixClassName: 'se-',
+    textArea: '#textArea',
+    buttonArea: '#buttonArea',
+});
+
+editor.registerAction('bold', function(){
+    editor.wrapSelectedText("''","''");
+});
+editor.registerAction('italic', function(){
+    editor.wrapSelectedText("'''","'''");
+});
+editor.registerAction('underline', function(){
+    editor.wrapSelectedText("%%%","%%%");
+});
+</script>
